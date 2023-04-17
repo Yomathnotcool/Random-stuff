@@ -74,7 +74,13 @@
 \begin{document}
 \maketitle
 \newpage
+In linear algebra and matrix theory, the axis of a linear transformation $T$ is the set of all vectors that are fixed by $T$, up to scalar multiplication. In other words, it is the subspace of the vector space that is mapped onto itself by the transformation $T$.
 
+More precisely, the axis of $T$ is the set $V(T)$ of all vectors $v$ such that $T(v) = \lambda v$ for some scalar $\lambda$. Note that $V(T)$ is a subspace of the vector space on which $T$ acts.
+
+If $T$ is a linear transformation represented by a matrix $A$ with respect to a basis for the vector space, then $V(T)$ is the nullspace of the matrix $A - \lambda I$, where $I$ is the identity matrix and $\lambda$ is the scalar such that $T(v) = \lambda v$ for some non-zero eigenvector $v$.
+
+It is worth noting that the axis of $T$ is also known as the eigenspace of $T$.
 
 
 \end{document}
