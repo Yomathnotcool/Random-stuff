@@ -82,5 +82,16 @@ If $T$ is a linear transformation represented by a matrix $A$ with respect to a 
 
 It is worth noting that the axis of $T$ is also known as the eigenspace of $T$.
 
+Sure, here is an outline of the steps to perform a Möbius transformation from the upper half-plane to the unit disk:
+
+Start with a function of the form $f(z) = \frac{az + b}{cz + d}$, where $a,b,c,$ and $d$ are complex numbers and $ad-bc\neq 0$. This function is a Möbius transformation.
+
+Choose $a,b,c,$ and $d$ so that $f(i) = 0$ and $f(\infty) = 1$. We can choose $c = 0$ and $d = 1$ to simplify the calculation. Then, we have $f(i) = \frac{ai+b}{i} = b - ai$, so we need to choose $b = 0$ and $a$ to be a real number. Let's choose $a = -1$.
+
+Substitute the chosen values of $a,b,c,$ and $d$ into the formula for $f(z)$ to obtain $f(z) = \frac{-z}{z + 1}$.
+
+Use the transformation $g(z) = \frac{z-i}{z+i}$ to map the upper half-plane to the unit disk. This transformation maps $i$ to $0$ and $\infty$ to $1$. Applying this transformation to $f(z)$, we get $g(f(z)) = \frac{(z-i)/(z+i)}{(-z-i)/(z+i)} = \frac{i-z}{i+z}$.
+
+Therefore, the Möbius transformation that maps the upper half-plane to the unit disk is $h(z) = \frac{i-z}{i+z}$, which is the same as $g(f(z))$.
 
 \end{document}
