@@ -94,4 +94,35 @@ Use the transformation $g(z) = \frac{z-i}{z+i}$ to map the upper half-plane to t
 
 Therefore, the Möbius transformation that maps the upper half-plane to the unit disk is $h(z) = \frac{i-z}{i+z}$, which is the same as $g(f(z))$.
 
+
+
+
+We can define the group homomorphism as follows:
+
+\begin{align} \phi: \Gamma &\rightarrow \mathbb{R}/2\pi\mathbb{Z} \ \gamma &\mapsto \frac{1}{2\pi}\text{Log}(a_\gamma) \end{align}
+
+where $a_\gamma$ is the real part of any non-trivial fixed point of $\gamma$.
+
+This homomorphism is well-defined because any Fuchsian group $\Gamma$ can be represented as a discrete subgroup of the group of Möbius transformations, and hence any $\gamma \in \Gamma$ has a non-trivial fixed point in the extended complex plane $\mathbb{C}\cup{\infty}$. Moreover, the choice of fixed point $a_\gamma$ does not affect the value of $\phi(\gamma)$ modulo $2\pi\mathbb{Z}$.
+
+To show that $\phi$ is a group homomorphism, we need to verify that $\phi(\gamma_1\gamma_2) = \phi(\gamma_1) + \phi(\gamma_2)$ for all $\gamma_1,\gamma_2 \in \Gamma$. Let $a_1$ and $a_2$ be non-trivial fixed points of $\gamma_1$ and $\gamma_2$, respectively. Then, we have:
+
+\begin{align} \phi(\gamma_1\gamma_2) &= \frac{1}{2\pi}\text{Log}(a_{\gamma_1\gamma_2}) \ &= \frac{1}{2\pi}\text{Log}(a_{\gamma_1}a_{\gamma_2}) \ &= \frac{1}{2\pi}\text{Log}(a_{\gamma_1}) + \frac{1}{2\pi}\text{Log}(a_{\gamma_2}) \ &= \phi(\gamma_1) + \phi(\gamma_2) \end{align}
+
+Therefore, $\phi$ is a group homomorphism from $\Gamma$ to $\mathbb{R}/2\pi\mathbb{Z}$.
+
+
+
+We can define a group homomorphism $\rho: \Gamma \to \mathbb{R}/2\pi\mathbb{Z}$ by sending each element $\gamma \in \Gamma$ to its translation length $L(\gamma) \in \mathbb{R}$.
+
+Recall that the translation length of an element $\gamma \in \Gamma$ is defined as $$L(\gamma) = \lim_{n \to \infty} \frac{d(\gamma^n x, x)}{n}$$ where $x \in \mathbb{H}$ is any fixed point and $d$ is the hyperbolic distance.
+
+It can be shown that $L(\gamma)$ is well-defined and lies in the interval $(0,\infty)$. Moreover, $L(\gamma_1\gamma_2) = L(\gamma_1) + L(\gamma_2)$ for any $\gamma_1, \gamma_2 \in \Gamma$. This implies that $\rho$ is a group homomorphism.
+
+Now, we want to show that the image of $\rho$ lies in $\mathbb{R}/2\pi\mathbb{Z}$. Suppose $L(\gamma) \in \mathbb{R}$ is the translation length of some $\gamma \in \Gamma$. Then, for any $x \in \mathbb{H}$, we have $$d(\gamma x, x) = L(\gamma)$$ Let $g \in \Gamma$ be any element such that $gx \neq x$. Then, using the triangle inequality, we have \begin{align} d(g\gamma x, gx) &\leq d(g\gamma x, \gamma x) + d(\gamma x, x) + d(x, gx) \ &= d(\gamma x, x) + d(x, gx) \ &= L(\gamma) + d(x, gx) \end{align} Taking the limit as $n \to \infty$ in the definition of $L(\gamma)$, we get $$L(\gamma) = \lim_{n \to \infty} \frac{d(\gamma^n x, x)}{n} \leq \lim_{n \to \infty} \frac{d(g\gamma^n x, gx)}{n} + \lim_{n \to \infty} \frac{d(x, gx)}{n} = L(\gamma)$$ This implies that $L(\gamma) = d(gx, x)$ for any $g \in \Gamma$ such that $gx \neq x$.
+
+Now, let $h \in \Gamma$ be an element such that $hx \neq x$. Then, we have \begin{align} 2\pi \cdot \rho(h) &= 2\pi \cdot L(h) \ &= 2\pi \cdot d(hx, x) \ &= \log(e^{2\pi d(hx,x)}) \\
+&= \log(e^{i2\pi d(hx,x)}) \ &= [\text{Argument of the complex number } hx - x] \pmod{2\pi} \ &\in \mathbb{R}/2\pi\mathbb{Z} \end{align} Thus, $\rho(h)$ lies in $\mathbb{R}/2\pi\mathbb{Z}$ for any $h \in \Gamma$.
+
+Therefore, $\rho$ is a group homomorphism from $\Gamma$ to $\mathbb{R}/2\pi\mathbb{Z}$.
 \end{document}
