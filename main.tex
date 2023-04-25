@@ -1,11 +1,11 @@
 \documentclass[12pt,a4paper,english]{article}
 \usepackage{mathtools}
-\usepackage{mathabx} 
+ 
 \usepackage[a4paper]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[OT2,T1]{fontenc}
 \usepackage{tcolorbox}
-\usepackage[keeplastbox]{flushend}
+
 \usepackage{color}
 \usepackage{tikz-cd}
 \usepackage{appendix}
@@ -19,7 +19,7 @@
 \usepackage{array}
 \usepackage{hyperref}
 \usepackage{graphicx}
-\usepackage{mathtools}
+
 \usepackage{natbib}
 \usepackage[bb=boondox]{mathalfa}
 \geometry{top=3cm,bottom=3cm,left=2.5cm,right=2.5cm}
@@ -74,6 +74,7 @@
 \begin{document}
 \maketitle
 \newpage
+\section{The group structure of $\Gamma$}
 In linear algebra and matrix theory, the axis of a linear transformation $T$ is the set of all vectors that are fixed by $T$, up to scalar multiplication. In other words, it is the subspace of the vector space that is mapped onto itself by the transformation $T$.
 
 More precisely, the axis of $T$ is the set $V(T)$ of all vectors $v$ such that $T(v) = \lambda v$ for some scalar $\lambda$. Note that $V(T)$ is a subspace of the vector space on which $T$ acts.
@@ -82,9 +83,9 @@ If $T$ is a linear transformation represented by a matrix $A$ with respect to a 
 
 It is worth noting that the axis of $T$ is also known as the eigenspace of $T$.
 
-Sure, here is an outline of the steps to perform a Möbius transformation from the upper half-plane to the unit disk:
+Sure, here is an outline of the steps to perform a Mobius transformation from the upper half-plane to the unit disk:
 
-Start with a function of the form $f(z) = \frac{az + b}{cz + d}$, where $a,b,c,$ and $d$ are complex numbers and $ad-bc\neq 0$. This function is a Möbius transformation.
+Start with a function of the form $f(z) = \frac{az + b}{cz + d}$, where $a,b,c,$ and $d$ are complex numbers and $ad-bc\neq 0$. This function is a Mobius transformation.
 
 Choose $a,b,c,$ and $d$ so that $f(i) = 0$ and $f(\infty) = 1$. We can choose $c = 0$ and $d = 1$ to simplify the calculation. Then, we have $f(i) = \frac{ai+b}{i} = b - ai$, so we need to choose $b = 0$ and $a$ to be a real number. Let's choose $a = -1$.
 
@@ -92,22 +93,28 @@ Substitute the chosen values of $a,b,c,$ and $d$ into the formula for $f(z)$ to 
 
 Use the transformation $g(z) = \frac{z-i}{z+i}$ to map the upper half-plane to the unit disk. This transformation maps $i$ to $0$ and $\infty$ to $1$. Applying this transformation to $f(z)$, we get $g(f(z)) = \frac{(z-i)/(z+i)}{(-z-i)/(z+i)} = \frac{i-z}{i+z}$.
 
-Therefore, the Möbius transformation that maps the upper half-plane to the unit disk is $h(z) = \frac{i-z}{i+z}$, which is the same as $g(f(z))$.
+Therefore, the Mobius transformation that maps the upper half-plane to the unit disk is $h(z) = \frac{i-z}{i+z}$, which is the same as $g(f(z))$.
 
 
 
 
 We can define the group homomorphism as follows:
 
-\begin{align} \phi: \Gamma &\rightarrow \mathbb{R}/2\pi\mathbb{Z} \ \gamma &\mapsto \frac{1}{2\pi}\text{Log}(a_\gamma) \end{align}
+\begin{align*} \phi: \Gamma &\rightarrow \mathbb{R}/2\pi\mathbb{Z} \\
+\gamma &\mapsto \frac{1}{2\pi}\text{Log}(a_\gamma) 
+\end{align*}
 
 where $a_\gamma$ is the real part of any non-trivial fixed point of $\gamma$.
 
-This homomorphism is well-defined because any Fuchsian group $\Gamma$ can be represented as a discrete subgroup of the group of Möbius transformations, and hence any $\gamma \in \Gamma$ has a non-trivial fixed point in the extended complex plane $\mathbb{C}\cup{\infty}$. Moreover, the choice of fixed point $a_\gamma$ does not affect the value of $\phi(\gamma)$ modulo $2\pi\mathbb{Z}$.
+This homomorphism is well-defined because any Fuchsian group $\Gamma$ can be represented as a discrete subgroup of the group of Mobius transformations, and hence any $\gamma \in \Gamma$ has a non-trivial fixed point in the extended complex plane $\mathbb{C}\cup{\infty}$. Moreover, the choice of fixed point $a_\gamma$ does not affect the value of $\phi(\gamma)$ modulo $2\pi\mathbb{Z}$.
 
 To show that $\phi$ is a group homomorphism, we need to verify that $\phi(\gamma_1\gamma_2) = \phi(\gamma_1) + \phi(\gamma_2)$ for all $\gamma_1,\gamma_2 \in \Gamma$. Let $a_1$ and $a_2$ be non-trivial fixed points of $\gamma_1$ and $\gamma_2$, respectively. Then, we have:
 
-\begin{align} \phi(\gamma_1\gamma_2) &= \frac{1}{2\pi}\text{Log}(a_{\gamma_1\gamma_2}) \ &= \frac{1}{2\pi}\text{Log}(a_{\gamma_1}a_{\gamma_2}) \ &= \frac{1}{2\pi}\text{Log}(a_{\gamma_1}) + \frac{1}{2\pi}\text{Log}(a_{\gamma_2}) \ &= \phi(\gamma_1) + \phi(\gamma_2) \end{align}
+\begin{align*} \phi(\gamma_1\gamma_2) &= \frac{1}{2\pi}\text{Log}(a_{\gamma_1\gamma_2}) \\
+&= \frac{1}{2\pi}\text{Log}(a_{\gamma_1}a_{\gamma_2}) \\
+&= \frac{1}{2\pi}\text{Log}(a_{\gamma_1}) + \frac{1}{2\pi}\text{Log}(a_{\gamma_2}) \\
+&= \phi(\gamma_1) + \phi(\gamma_2) 
+\end{align*}
 
 Therefore, $\phi$ is a group homomorphism from $\Gamma$ to $\mathbb{R}/2\pi\mathbb{Z}$.
 
@@ -115,14 +122,193 @@ Therefore, $\phi$ is a group homomorphism from $\Gamma$ to $\mathbb{R}/2\pi\math
 
 We can define a group homomorphism $\rho: \Gamma \to \mathbb{R}/2\pi\mathbb{Z}$ by sending each element $\gamma \in \Gamma$ to its translation length $L(\gamma) \in \mathbb{R}$.
 
-Recall that the translation length of an element $\gamma \in \Gamma$ is defined as $$L(\gamma) = \lim_{n \to \infty} \frac{d(\gamma^n x, x)}{n}$$ where $x \in \mathbb{H}$ is any fixed point and $d$ is the hyperbolic distance.
+Recall that the translation length of an element $\gamma \in \Gamma$ is defined as 
+$$L(\gamma) = \lim_{n \to \infty} \frac{d(\gamma^n x, x)}{n}$$
+where $x \in \mathbb{H}$ is any fixed point and $d$ is the hyperbolic distance.
 
 It can be shown that $L(\gamma)$ is well-defined and lies in the interval $(0,\infty)$. Moreover, $L(\gamma_1\gamma_2) = L(\gamma_1) + L(\gamma_2)$ for any $\gamma_1, \gamma_2 \in \Gamma$. This implies that $\rho$ is a group homomorphism.
 
-Now, we want to show that the image of $\rho$ lies in $\mathbb{R}/2\pi\mathbb{Z}$. Suppose $L(\gamma) \in \mathbb{R}$ is the translation length of some $\gamma \in \Gamma$. Then, for any $x \in \mathbb{H}$, we have $$d(\gamma x, x) = L(\gamma)$$ Let $g \in \Gamma$ be any element such that $gx \neq x$. Then, using the triangle inequality, we have \begin{align} d(g\gamma x, gx) &\leq d(g\gamma x, \gamma x) + d(\gamma x, x) + d(x, gx) \ &= d(\gamma x, x) + d(x, gx) \ &= L(\gamma) + d(x, gx) \end{align} Taking the limit as $n \to \infty$ in the definition of $L(\gamma)$, we get $$L(\gamma) = \lim_{n \to \infty} \frac{d(\gamma^n x, x)}{n} \leq \lim_{n \to \infty} \frac{d(g\gamma^n x, gx)}{n} + \lim_{n \to \infty} \frac{d(x, gx)}{n} = L(\gamma)$$ This implies that $L(\gamma) = d(gx, x)$ for any $g \in \Gamma$ such that $gx \neq x$.
+Now, we want to show that the image of $\rho$ lies in $\mathbb{R}/2\pi\mathbb{Z}$. Suppose $L(\gamma) \in \mathbb{R}$ is the translation length of some $\gamma \in \Gamma$. Then, for any $x \in \mathbb{H}$, we have $$d(\gamma x, x) = L(\gamma)$$ Let $g \in \Gamma$ be any element such that $gx \neq x$. Then, using the triangle inequality, we have 
+\begin{align} d(g\gamma x, gx) &\leq d(g\gamma x, \gamma x) + d(\gamma x, x) + d(x, gx) \\
+&= d(\gamma x, x) + d(x, gx) \\
+&= L(\gamma) + d(x, gx) 
+\end{align} 
+Taking the limit as $n \to \infty$ in the definition of $L(\gamma)$, we get $$L(\gamma) = \lim_{n \to \infty} \frac{d(\gamma^n x, x)}{n} \leq \lim_{n \to \infty} \frac{d(g\gamma^n x, gx)}{n} + \lim_{n \to \infty} \frac{d(x, gx)}{n} = L(\gamma)$$ This implies that $L(\gamma) = d(gx, x)$ for any $g \in \Gamma$ such that $gx \neq x$.
 
-Now, let $h \in \Gamma$ be an element such that $hx \neq x$. Then, we have \begin{align} 2\pi \cdot \rho(h) &= 2\pi \cdot L(h) \ &= 2\pi \cdot d(hx, x) \ &= \log(e^{2\pi d(hx,x)}) \\
-&= \log(e^{i2\pi d(hx,x)}) \ &= [\text{Argument of the complex number } hx - x] \pmod{2\pi} \ &\in \mathbb{R}/2\pi\mathbb{Z} \end{align} Thus, $\rho(h)$ lies in $\mathbb{R}/2\pi\mathbb{Z}$ for any $h \in \Gamma$.
+Now, let $h \in \Gamma$ be an element such that $hx \neq x$. Then, we have 
+\begin{align} 2\pi \cdot \rho(h) &= 2\pi \cdot L(h) \\
+&= 2\pi \cdot d(hx, x) \\
+&= \log(e^{2\pi d(hx,x)}) \\
+&= \log(e^{i2\pi d(hx,x)}) \\ 
+&= [\text{Argument of the complex number } hx - x] \pmod{2\pi} \\
+&\in \mathbb{R}/2\pi\mathbb{Z} 
+\end{align} 
+Thus, $\rho(h)$ lies in $\mathbb{R}/2\pi\mathbb{Z}$ for any $h \in \Gamma$.
 
 Therefore, $\rho$ is a group homomorphism from $\Gamma$ to $\mathbb{R}/2\pi\mathbb{Z}$.
+
+\subsection{given a Fuchsian group $\Gamma$, for any element of $\Gamma$, we can define the translation length of this element, can you write the formula of translation length of identity element, parabolic element, hyperbolic element and elliptic element? answer in latex}
+Sure, here are the formulas for the translation lengths of different types of elements in a Fuchsian group $\Gamma$:
+
+
+Identity element: $l_\mathrm{id}(\gamma)=0$ for any $\gamma\in\Gamma$.
+
+Parabolic element: $l_\mathrm{par}(\gamma)=\frac{1}{2}\mathrm{inf}{\left|\mathrm{Im}(z)\right|:z\in\mathbb{H},\gamma(z)=z}$ for any parabolic $\gamma\in\Gamma$, where $\mathrm{inf}$ stands for infimum.
+
+Hyperbolic element: $l_\mathrm{hyp}(\gamma)=\mathrm{log}(r_\gamma)$ for any hyperbolic $\gamma\in\Gamma$, where $r_\gamma=\mathrm{max}{\left|\gamma(z)-z\right|:z\in\mathbb{H}}$ is the displacement of $\gamma$.
+
+Elliptic element: $l_\mathrm{ell}(\gamma)=\frac{1}{2}\mathrm{log}(r_\gamma)$ for any elliptic $\gamma\in\Gamma$, where $r_\gamma=\mathrm{max}{\left|\gamma(z)-z\right|:z\in\mathbb{H}}$ is the diameter of the axis of $\gamma$.
+
+\subsection{by this translation length, we can define a group homomorphism from $\Gamma$ to $R/2\pi Z$, in which R is the real line, Z is the set of integers.}
+Yes, that's correct! The translation length determines a homomorphism from the Fuchsian group $\Gamma$ to the group $\mathbb{R}/2\pi\mathbb{Z}$ (the real numbers modulo $2\pi$ times the integers) as follows.
+
+For any element $\gamma \in \Gamma$, we define its translation length to be $l(\gamma)$. Then, the mapping:
+
+$$\phi : \Gamma \rightarrow \mathbb{R}/2\pi\mathbb{Z}$$ $$\gamma \rightarrow l(\gamma) \space mod \space 2\pi \mathbb{Z}$$
+
+is a homomorphism from $\Gamma$ to $\mathbb{R}/2\pi\mathbb{Z}$.
+
+From this homomorphism, we can see that the parabolic elements of $\Gamma$ are mapped to $0$ mod $2\pi\mathbb{Z}$, while the hyperbolic elements are mapped to a non-zero value in $\mathbb{R}/2\pi\mathbb{Z}$, and elliptic elements are mapped to a value in $(0,\pi]\cap 2\pi\mathbb{Z}$. This homomorphism is an example of a general construction in group theory known as a length homomorphism.
+
+\subsection{write down the kernel of this group homomorphism}
+The kernel of the group homomorphism $$\phi : \Gamma \rightarrow \mathbb{R}/2\pi\mathbb{Z}$$ $$\gamma \rightarrow l(\gamma) \, \mathrm{mod} \, 2\pi\mathbb{Z}$$ is defined as the set of elements in $\Gamma$ that are mapped to the identity element, $0\in\mathbb{R}/2\pi\mathbb{Z}$. So, the kernel of $\phi$ is the set: $$\ker(\phi)={\gamma\in\Gamma:l(\gamma)\in2\pi\mathbb{Z}}$$ In other words, the kernel of $\phi$ consists of those elements of $\Gamma$ which have a translation length that is an integer multiple of $2\pi$.
+
+
+\subsection{by this group homomorphism, we can construct a bigger group $\Gamma\times R$, in which R is the real line, and the element in this group is $(\gamma, l(\gamma))$, $l(\gamma)$ is the translation length as your definition}
+Yes, that's correct! Given the homomorphism $$\phi : \Gamma \rightarrow \mathbb{R}/2\pi\mathbb{Z}$$ $$\gamma \rightarrow l(\gamma) \, \mathrm{mod} \, 2\pi\mathbb{Z},$$ we can construct a larger group $\Gamma\times\mathbb{R}$ whose elements are pairs $(\gamma, t)$ where $\gamma\in\Gamma$ and $t\in\mathbb{R}$. We can define a group operation on this group pointwise as follows: $$(\gamma_1, t_1)\cdot(\gamma_2, t_2) = (\gamma_1\gamma_2, t_1+t_2-l(\gamma_1\gamma_2)).$$ This defines a group structure on $\Gamma\times\mathbb{R}$, called the semi-direct product of $\Gamma$ with $\mathbb{R}$.
+
+Under this group operation, the element $(\gamma, l(\gamma))$ acts as the identity element of $\Gamma\times\mathbb{R}$, since $(\gamma, l(\gamma))\cdot(\gamma', t)=(\gamma\gamma', l(\gamma\gamma'))$. We can see that $\Gamma$ is a normal subgroup of $\Gamma\times\mathbb{R}$, and that the quotient group $(\Gamma\times\mathbb{R})/\Gamma\cong\mathbb{R}$, where the isomorphism sends the coset $(\gamma, t)\Gamma$ to $t\in\mathbb{R}$.
+
+This construction is a common technique in algebraic geometry and number theory, known as the Baily-Borel-Satake compactification of a quotient of a bounded symmetric domain by a discrete subgroup of automorphisms.
+
+\section{The lift space $\tilde{\Gamma}\backslash \mathbb{H}\times \mathbb{R}$}
+\subsection{given a fuchsian group $\Gamma$ acting on upper half plane, there is a group homomorphism $\phi: \Gamma \to R/2\pi Z$ by sending element of $\Gamma$ to its translation length, in which R is the real line and Z is the set of the integers. By using this group homomorphism, we can construct a group $\tilde{\Gamma}=\{(\gamma,y)| \gamma\in \Gamma, y\in \phi(\gamma)\}$, write down this new group $\tilde{\Gamma }$}
+
+$\tilde{\Gamma}=\{(\gamma,y)| \gamma\in \Gamma, y\in \phi(\gamma)\}$
+
+\subsection{
+then we can define action of this $\tilde{\Gamma}$ on $\Gamma\backslash H\times R$, in which H is the upper half plane compenent wise}
+
+Yes, we can define the action of $\tilde{\Gamma}$ on $\Gamma\backslash H \times R$ as follows:
+
+For $(\gamma, y) \in \tilde{\Gamma}$, and $[(z,t)] \in \Gamma \backslash H \times R$, where $[.]$ denotes the $\Gamma$-orbit, we define the action of $(\gamma, y)$ on $[(z,t)]$ by:
+
+$$(\gamma, y) [(z,t)] = [(\gamma z, t+y)]$$
+
+This tells us how to move the point $(z,t)$ under the action of the group element $(\gamma, y)$. The orbit $\Gamma \backslash H \times R$ is the set of all $\Gamma$-orbits of points in the product space $H \times R$. The action of $\tilde{\Gamma}$ on $\Gamma \backslash H \times R$ can be thought of as a way of "lifting" the action of $\Gamma$ on $H$ to an action on the entire product space $H \times R$.
+
+\subsection{now given a compact supported function f defined on the space $\Gamma\backslash H$, then what is the lift of f to the space $\tilde{\Gamma}\backslash H \times R$}
+The lift of $f$ to the space $\tilde{\Gamma}\backslash H \times R$ is the function $\tilde{f}:\tilde{\Gamma}\backslash H \times R \to \mathbb{C}$ defined by:
+
+$$\tilde{f}([(z,t)]) = \sum_{\gamma \in \Gamma} \sum_{y \in \phi(\gamma)} f([\gamma z]) e^{2\pi i y t}$$
+
+Here, $[\gamma z]$ denotes the $\Gamma$-orbit of $\gamma z$ in $\Gamma \backslash H$, and $e^{2\pi i y t}$ is the "twist" factor that depends on the second coordinate of the point in the lift.
+
+Intuitively, what we are doing here is taking the compactly supported function $f$ on $\Gamma \backslash H$ and "lifting" it to the group $\tilde{\Gamma}$ by summing over all possible lifts of the fundamental domain of $\Gamma$ in $H$, and then weighting each summand by the twist factor $e^{2\pi i y t}$. This gives us a function $\tilde{f}$ that is invariant under the action of $\tilde{\Gamma}$ on $\tilde{\Gamma}\backslash H \times R$.
+\subsection{what is the definition for a function f on the space $\tilde{\Gamma}\backslash H\times R$ being $\tilde{\Gamma}$-periodic}
+
+A function $f$ on the space $\tilde{\Gamma}\backslash H \times R$ is said to be $\tilde{\Gamma}$-periodic if it satisfies the following condition:
+
+For any $(\gamma,y) \in \tilde{\Gamma}$ and $[(z,t)] \in \tilde{\Gamma}\backslash H \times R$, we have:
+
+$$f((\gamma, y) [(z, t)]) = f([(z,t)])$$
+
+In other words, the value of $f$ at the translated point $(\gamma, y) [(z,t)]$ is equal to its value at the original point $[(z,t)]$. Another way to think of this is that $f$ is invariant under the action of $\tilde{\Gamma}$ on $\tilde{\Gamma}\backslash H \times R$.
+
+\subsection{
+now given any square integrable function G(z,y) defined on the space $\tilde{\Gamma}\backslash H\times R$, write the expansion of G(z,y) by compact supported functions}
+
+To expand $G(z,y)$ as a sum of compactly supported functions, we can use the theory of Fourier series.
+
+First, note that since $G(z,y)$ is square integrable on $\tilde{\Gamma}\backslash H \times R$ and $\tilde{\Gamma}\backslash H \times R$ is a compact space, we know that $G(z,y)$ can be written as a Fourier series in the form:
+
+$$G(z,y) = \sum_{n\in \mathbb{Z}} \sum_{\gamma\in \Gamma} c_{\gamma,n} f_{\gamma,n}(z,y)$$
+
+Here, $f_{\gamma,n}(z,y)$ are compactly supported functions on $\tilde{\Gamma}\backslash H \times R$ given by:
+
+$$f_{\gamma,n}(z,y) = f([\gamma z]) e^{2\pi i n y}$$
+
+where $f([\gamma z])$ is a compactly supported function on $\Gamma\backslash H$, and $n \in \mathbb{Z}$.
+
+The coefficients $c_{\gamma,n}$ are given by:
+
+$$c_{\gamma,n} = \frac{1}{[\tilde{\Gamma}:\Gamma]}\int_{\phi^{-1}(n)}\int_{\Gamma\backslash H} G(z,y) \overline{f([\gamma z])} e^{-2\pi i n y} dxdy$$
+
+where $\phi^{-1}(n)$ denotes the preimage of $n$ under the map $\phi:\tilde{\Gamma} \rightarrow \mathbb{R}/2\pi\mathbb{Z}$, and $[\tilde{\Gamma}:\Gamma]$ is the index of $\Gamma$ in $\tilde{\Gamma}$.
+
+So, the expansion of $G(z,y)$ in terms of compactly supported functions $f_{\gamma,n}$ is given by the above Fourier series formula with coefficients $c_{\gamma,n}$.
+
+\subsection{what is the eisenstein series with respect to $\tilde{\Gamma}$?}
+The Eisenstein series with respect to $\tilde{\Gamma}$ is a special type of function on the space $\tilde{\Gamma}\backslash H \times R$ that is closely related to the theory of modular forms.
+
+To define the Eisenstein series, let $k$ be a positive integer, and define the weight-$k$ Eisenstein series $G_k(z,s)$ for $\tilde{\Gamma}$ as:
+
+$$G_k(z,s) = \sum_{\gamma \in \Gamma} \sum_{y \in \phi(\gamma)} \frac{1}{\left|\gamma z\right|^k} e^{2\pi i y s}$$
+
+where $z \in \mathbb{H}$, $s$ is a complex number, and $\phi:\Gamma \rightarrow \mathbb{R}/2\pi\mathbb{Z}$ is the group homomorphism defined by sending each element of $\Gamma$ to its translation length on $\mathbb{R}$. The sum over $\gamma$ and $y$ is taken over all pairs $(\gamma, y) \in \tilde{\Gamma}$.
+
+Note that the Eisenstein series $G_k(z,s)$ is not holomorphic on $\tilde{\Gamma}\backslash H \times R$, in general. However, it can be shown that if $k \geq 2$, then $G_k(z,s)$ can be written as a linear combination of holomorphic functions on $\tilde{\Gamma}\backslash H$. Specifically, if we define the weight-$k$ operator $D_k$ by:
+
+$$D_kf(z) = -\frac{k}{2\pi i}\frac{d}{dz}\left(\sum_{\gamma \in \Gamma} f(\gamma z)\right)$$
+
+then we have:
+
+$$G_k(z,s) = \pi^{-s} \Gamma(s-\frac{k}{2}) \zeta(s-k) D_k\left(\sum_{\gamma \in \Gamma} \frac{1}{\left|\gamma z\right|^k}\right) + (s \leftrightarrow k-s)$$
+
+where $\Gamma$ is the Gamma function, $\zeta(s)$ is the Riemann zeta function, and $(s \leftrightarrow k-s)$ denotes the same expression with $s$ replaced by $k-s$.
+
+Intuitively, the Eisenstein series $G_k(z,s)$ is a way of summing over all possible "lattice points" in the space $\tilde{\Gamma}\backslash H \times R$, and the weight-$k$ operator $D_k$ relates $G_k(z,s)$ to a sum of holomorphic functions on $\tilde{\Gamma}\backslash H$. The study of Eisenstein series is an important part of the theory of modular forms and automorphic forms.
+
+\subsection{what is the fundamental domain of $\tilde{\Gamma}$}
+The fundamental domain of $\tilde{\Gamma}$ is a region in the space $H \times \mathbb{R}$ that contains exactly one representative of each $\tilde{\Gamma}$-orbit.
+
+To find the fundamental domain of $\tilde{\Gamma}$, we can start with a fundamental domain $\mathcal{F}$ of $\Gamma$ in $H$, and then lift it to the space $H \times \mathbb{R}$ by considering all possible translations of $\mathcal{F}$ by elements of $\Gamma$ and their corresponding translation lengths. Specifically, we can define the following set:
+
+$$\mathcal{F}^\ast = {(\gamma z, t+\phi(\gamma)) \mid \gamma \in \Gamma, z \in \mathcal{F}, t \in [0, \phi(\gamma))}$$
+
+where $\phi:\Gamma\rightarrow \mathbb{R}/2\pi\mathbb{Z}$ is the group homomorphism defined by sending each element of $\Gamma$ to its translation length on $\mathbb{R}$.
+
+The set $\mathcal{F}^\ast$ is a union of translates of $\mathcal{F}$, each translated by a $\Gamma$-element and their corresponding translation lengths. Moreover, $\mathcal{F}^\ast$ contains exactly one representative of each $\tilde{\Gamma}$-orbit. Thus, we take $\mathcal{F}^\ast$ to be the fundamental domain of $\tilde{\Gamma}$ in $H \times \mathbb{R}$.
+
+Intuitively, the fundamental domain $\mathcal{F}^\ast$ tells us how to "tile" the space $\tilde{\Gamma}\backslash H \times \mathbb{R}$ using copies of the fundamental domain $\mathcal{F}$. By choosing a convenient fundamental domain, we can simplify many computations involving the space $\tilde{\Gamma}\backslash H \times \mathbb{R}$ and its various functions.
+
+
+\subsection{
+why is the space $\tilde{\Gamma}\backslash H\times R$ compact? if so, what is the area of the fundamental domain of $\tilde{\Gamma}$}
+The space $\tilde{\Gamma}\backslash H \times R$ is compact because it is the continuous image of the compact space $H \times [0,1]$, under the quotient map $\pi:\tilde{\Gamma}\backslash H \times R \to \tilde{\Gamma}\backslash H \times \mathbb{R}$ given by $\pi([(z,t)]) = [(z,t-\phi(\gamma))]$, where $(\gamma,\phi(\gamma))$ is any representative of the $\tilde{\Gamma}$-orbit of $(z,t)$. As the quotient of a compact space by a discrete group action, $\tilde{\Gamma}\backslash H \times R$ is itself compact.
+
+To compute the area of the fundamental domain of $\tilde{\Gamma}$, we can start with the area $A(\mathcal{F})$ of the fundamental domain $\mathcal{F}$ of $\Gamma$ in $H$. Since $\mathcal{F}$ tiles $H$ under the action of $\Gamma$, we can write the area of $H$ as a sum of $[\tilde{\Gamma}:\Gamma]$ copies of the area of $\mathcal{F}$:
+
+$$A(H) = [\tilde{\Gamma}:\Gamma] A(\mathcal{F})$$
+
+To compute the area of the fundamental domain of $\tilde{\Gamma}$, we need to take into account the translation lengths of $\tilde{\Gamma}$ in $\mathbb{R}$. For any fixed $z \in \mathcal{F}$, the translation lengths $\phi(\gamma)$ of $\tilde{\Gamma}$ in $\mathbb{R}$ form a discrete set. Let $L$ be the smallest positive value of a non-zero translation length in $\tilde{\Gamma}$. Then, for any fixed $z \in \mathcal{F}$, we can choose a rectangle $R_z$ in $H \times \mathbb{R}$ of area $A(\mathcal{F}) L$ that contains all translates of $(z,0)$ by elements of $\tilde{\Gamma}$, and whose side lengths in the $\mathbb{R}$ direction are proportional to their corresponding translation lengths. It follows that the fundamental domain of $\tilde{\Gamma}$ can be covered by copies of $R_z$ as $z$ ranges over a fundamental domain of $\Gamma$ in $H$. Hence, the area of the fundamental domain of $\tilde{\Gamma}$ is given by:
+
+$$A(\tilde{\Gamma}) = [\tilde{\Gamma}:\Gamma] A(\mathcal{F}) L$$
+
+where $L$ is the smallest positive value of a non-zero translation length in $\tilde{\Gamma}$.
+
+In summary, the area of the fundamental domain of $\tilde{\Gamma}$ is $[\tilde{\Gamma}:\Gamma] A(\mathcal{F}) L$, where $A(\mathcal{F})$ is the area of the fundamental domain of $\Gamma$ in $H$, and $L$ is the smallest positive value of a non-zero translation length in $\tilde{\Gamma}$.
+
+
+
+
+
+\section{Calculation sketch}
+Using the same approach as before, we can write the integral as:
+
+$$\int_{-\infty}^{\infty} \phi(|t-t_{0}|)g(t)e^{2k\pi i(t-t_{o})}dt = \int_{0}^{\infty} \phi(\rho) \left[\int_{-\rho}^{\rho} g(t_{0} + u) e^{2k\pi iu} du\right] e^{2k\pi i t_{0}} \rho d\rho$$
+
+Similar to before, we can use a change of variables $u = r\cos\theta$ and $dt = r\cos\theta d\theta dr$ to convert the inner integral to polar coordinates:
+
+$$\int_{-\rho}^{\rho} g(t_{0} + u) e^{2k\pi iu} du = 2\int_{0}^{\rho} g(t_{0} + r\cos\theta) e^{2k\pi ir\cos\theta}r d\theta$$
+
+Then, using the fact that $g$ is an eigenfunction of the Laplacian on $R$, we can use integration by parts to evaluate this integral:
+
+$$\int_{-\rho}^{\rho} g(t_{0} + u) e^{2k\pi iu} du = \frac{2}{\lambda} e^{2k\pi i t_{0}} \left[g(t_{0}+\rho) \sin(2k\pi\rho) - k\pi\int_{t_{0}+\rho}^{t_{0}-\rho} g(t)e^{2k\pi it} dt\right]$$
+
+Plugging this back into the original integral, we get:
+
+$$\int_{-\infty}^{\infty} \phi(|t-t_{0}|)g(t)e^{2k\pi i(t-t_{o})}dt = \frac{4\pi}{\lambda} e^{2k\pi i t_{0}} \int_{0}^{\infty} \phi(\rho) g(t_{0}+\rho) \sin(2k\pi\rho) \rho d\rho - 2k\pi e^{2k\pi i t_{0}} \int_{-\infty}^{\infty} \phi(\rho) \left[\int_{t_{0}+\rho}^{t_{0}-\rho} g(t)e^{2k\pi it} dt\right] \rho d\rho$$
+
+This expression cannot be simplified further without additional information about the function $\phi$.
 \end{document}
